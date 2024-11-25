@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build . --rm -f ./docker/Dockerfile -t ddns:latest --build-arg ARCH=
+docker build . --rm -f ./docker/Dockerfile -t Knu334/mydns:latest --build-arg ARCH=
