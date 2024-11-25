@@ -29,8 +29,8 @@ const axiosConfig: AxiosRequestConfig = {
 axios
   .request(axiosConfig)
   .then((res: AxiosResponse) => {
-    const regex = /<DT>REMOTE ADDRESS:<\/DT><DD>(.*?)<\/DD>/m.exec(res.data);
-    logger.info(`${res.status}\t${regex![1]}`);
+    const match = /<DT>REMOTE ADDRESS:<\/DT><DD>(.*?)<\/DD>/m.exec(res.data);
+    logger.info(`${res.status}\t${match![1]}`);
   })
   .catch((err: AxiosError) => {
     logger.error(`${err.status}\t${err.stack}`);
