@@ -14,5 +14,6 @@ WORKDIR /app/
 COPY docker/create-user.sh /usr/bin/create-user.sh
 COPY --from=gosu /usr/sbin/gosu /usr/sbin/gosu
 COPY --from=build /app/dist/app.js /app/app.js
+RUN chmod +x /usr/bin/create-user.sh
 ENTRYPOINT [ "/usr/bin/create-user.sh" ]
 CMD [ "/usr/local/bin/node", "/app/app.js" ]
