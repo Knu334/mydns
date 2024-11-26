@@ -3,6 +3,8 @@ if [ ! -e .env ]; then
     echo USERNAME= >> .env
     echo PASSWORD= >> .env
     echo NODE_ENV=production >> .env
+    echo USER_ID= >> .env
+    echo GROUP_ID= >> .env
     echo TZ=Asia/Tokyo >> .env
     echo LOG_LEVEL=INFO >> .env
 fi
