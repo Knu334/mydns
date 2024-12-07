@@ -1,5 +1,5 @@
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
-import log4js from "log4js";
+import * as log4js from "log4js";
 
 log4js.configure({
   appenders: {

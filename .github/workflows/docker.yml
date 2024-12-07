@@ -27,16 +27,24 @@ jobs:
         with:
           push: false
           builder: ${{ steps.buildx.outputs.name }}
-          tags: reminder-server:latest
+          tags: Knu334/mydns:latest
           load: true
           context: .
           file: ./docker/Dockerfile
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
 
-      - name: Docker build
+      - name: Set up .env
         run: |
-          ./docker/docker-build.sh
+          if [ ! -e .env ]; then
+            echo USERNAME= >> .env
+            echo PASSWORD= >> .env
+            echo NODE_ENV=production >> .env
+            echo USER_ID=1001 >> .env
+            echo GROUP_ID=1001 >> .env
+            echo TZ=Asia/Tokyo >> .env
+            echo LOG_LEVEL=INFO >> .env
+          fi
 
       - name: Docker run
         run: |
